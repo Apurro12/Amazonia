@@ -12,10 +12,10 @@ class Territorio(object):
   
     def __init__(self, tamaño, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamaño = tamaño              #un vector que define el tamaño, sería la "diagonal del rect" en 2D
-        self.lista_pre = lista_p            #lista que contiene los objetos presa
-        self.lista_dep = lista_d            #lista que contiene los objetos depredadores
-        self.num_pre = len(lista_p)    #número de presas
-        self.num_dep = len(lista_d)    #número de depredadores  
+        self.lista_pre = lista_pre            #lista que contiene los objetos presa
+        self.lista_dep = lista_dep            #lista que contiene los objetos depredadores
+        self.num_pre = len(lista_pre)    #número de presas
+        self.num_dep = len(lista_dep)    #número de depredadores  
     
     def asignar_pos(self):
         self.pos_dep[:][1] += self.pos_dep[:][0].moverse().mov[0]
@@ -41,8 +41,8 @@ class Territorio(object):
                 self.y_pre.append(rand.random()*self.tamaño[1])
 
         
-        self.pos_pre = list(zip(lista_pre, self.x_pre, self.y_pre))         #zip mergea en una lista nueva los elementos i de
-        self.pos_dep = list(zip(lista_dep, self.x_dep, self.y_dep))         #cada lista
+        self.pos_pre = list(zip(self.lista_pre, self.x_pre, self.y_pre))         #zip mergea en una lista nueva los elementos i de
+        self.pos_dep = list(zip(self.lista_dep, self.x_dep, self.y_dep))         #cada lista
         return (self.pos_pre, self.pos_dep)
     
         
@@ -53,29 +53,29 @@ class Territorio(object):
 
 # In[10]:
 
-tamaño = [20,20]
-lista_pre = ['p1','p2','p3']
-lista_dep = ['d1','d2','d3']
+#tamaño = [20,20]
+#lista_pre = ['p1','p2','p3']
+#lista_dep = ['d1','d2','d3']
 
 
 # In[11]:
 
-a = Territorio(tamaño,lista_p,lista_d)
+#a = Territorio(tamaño,lista_p,lista_d)
 
 
 # In[12]:
 
-a.iniciar()
+#a.iniciar()
 
 
 # In[14]:
 
-a.pos_dep
+#a.pos_dep
 
 
 # In[15]:
 
-a.x_pre
+#a.x_pre
 
 
 # In[ ]:
