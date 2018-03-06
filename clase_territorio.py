@@ -18,11 +18,13 @@ class Territorio(object):
         self.num_dep = len(lista_dep)    #número de depredadores  
     
     def asignar_pos(self):
-        self.pos_dep[:][1] += self.pos_dep[:][0].moverse().mov[0]
-        self.pos_dep[:][2] += self.pos_dep[:][0].moverse().mov[1]
-        self.pos_pre[:][1] += self.pos_pre[:][0].moverse().mov[0]
-        self.pos_pre[:][2] += self.pos_pre[:][0].moverse().mov[1]
-        pass
+        for i in range(self.num_dep):
+            self.pos_dep[i][1] += self.pos_dep[i][0].moverse()[0]
+            self.pos_dep[i][2] += self.pos_dep[i][0].moverse()[1]
+        for i in range(self.num_pre):
+            self.pos_pre[i][1] += self.pos_pre[i][0].moverse()[0]
+            self.pos_pre[i][2] += self.pos_pre[i][0].moverse()[1]
+#        pass
                 
     def iniciar(self):
         
@@ -41,44 +43,16 @@ class Territorio(object):
                 self.y_pre.append(rand.random()*self.tamaño[1])
 
         
-        self.pos_pre = list(zip(self.lista_pre, self.x_pre, self.y_pre))         #zip mergea en una lista nueva los elementos i de
-        self.pos_dep = list(zip(self.lista_dep, self.x_dep, self.y_dep))         #cada lista
+        self.pos_pre = [[self.lista_pre[i], self.x_pre[i], self.y_pre[i]] for i in range(self.num_pre)]  #genero la lista de
+        self.pos_dep = [[self.lista_dep[i], self.x_dep[i], self.y_dep[i]] for i in range(self.num_dep)]  #listas[obj,x,y]
         return (self.pos_pre, self.pos_dep)
+   
+
+     #self.pos_pre = list(zip(self.lista_pre, self.x_pre, self.y_pre))        #zip mergea en una lista nueva los elementos i de
+     #self.pos_dep = list(zip(self.lista_dep, self.x_dep, self.y_dep))         #cada lista
     
         
     
 
     
-
-
-# In[10]:
-
-#tamaño = [20,20]
-#lista_pre = ['p1','p2','p3']
-#lista_dep = ['d1','d2','d3']
-
-
-# In[11]:
-
-#a = Territorio(tamaño,lista_p,lista_d)
-
-
-# In[12]:
-
-#a.iniciar()
-
-
-# In[14]:
-
-#a.pos_dep
-
-
-# In[15]:
-
-#a.x_pre
-
-
-# In[ ]:
-
-
 

@@ -24,6 +24,39 @@ a = territorio.Territorio(tamaño,lista_pre,lista_dep)
 a.iniciar()
 
 
+# ## Ahora tenemos que generar animales con IDs
+
+# In[5]:
+
+depredadores = []
+for i in range(0,20):
+    depredadores.append(animales.Depredador(i))
+    
+
+
+# In[6]:
+
+presas = []
+for i in range(0,50):
+    presas.append(animales.Presa(i))
+    
+
+
+# In[8]:
+
+b = territorio.Territorio(tamaño,presas,depredadores)
+
+
+# In[9]:
+
+b.iniciar()
+
+
+# In[19]:
+
+b.asignar_pos()
+
+
 # In[ ]:
 
 
