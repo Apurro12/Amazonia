@@ -31,14 +31,14 @@ class Presa(Animales):
         Animales.__init__(self)
         self.velocidad *= 2
         self.vision *= 4
-	self.ID=ID
+        self.ID=ID
     
 class Depredador(Animales):
     def __init__(self,ID):
         Animales.__init__(self)
         self.velocidad *= 4
         self.vision *= 4
-	self.ID=ID
+        self.ID=ID
 
 
 # In[ ]:
