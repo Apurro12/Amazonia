@@ -27,16 +27,18 @@ class Animales(object):
 #Tenemos que definir el metodo vision
 
 class Presa(Animales):
-    def __init__(self):
+    def __init__(self,ID):
         Animales.__init__(self)
         self.velocidad *= 2
         self.vision *= 4
-
+	self.ID=ID
+    
 class Depredador(Animales):
-    def __init__(self):
+    def __init__(self,ID):
         Animales.__init__(self)
         self.velocidad *= 4
         self.vision *= 4
+	self.ID=ID
 
 
 # In[ ]:
