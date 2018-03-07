@@ -22,8 +22,8 @@ class Animales(object):
 class Presa(Animales):
     def __init__(self,ID):
         Animales.__init__(self)
-        self.velocidad *= 2
-        self.vision *= 4
+        self.velocidad *= 1
+        self.vision *= 1
         self.ID = ID
 
 class Depredador(Animales):
@@ -31,14 +31,12 @@ class Depredador(Animales):
         Animales.__init__(self)
         self.velocidad *= 3
         self.vision *= 3
+        self.rad_comer = self.vision/3. 
         self.ID = ID
         
-    def cazar(self,tag,territorio): #acá territorrio es el objeto territorio, por lo tanto adentro del método
-        #COMO MIERDA LLAMO A calcular_distancias que está en Clase Territorio
-#        presa_a_cazar = [0,0]
-#        presa_a_cazar = territorio.pre_mas_cerc[tag][1:]
-#        linea de prueba
-        pass
+    def comer(self,ID_pre_com,lista): # Le pasa el ID de la presa a comer en ID_pre_com, junto con la lista
+        del lista(ID_pre_com)         # de presas (en lista). Elimina el elemento list_pre_com de 
+        return lista
 
         
 
