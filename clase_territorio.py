@@ -21,11 +21,11 @@ class Territorio(object):
     
     def asignar_pos(self):
         for i in range(self.num_dep):
-            self.pos_dep[i][1] += self.pos_dep[i][0].moverse()[0]*self.pos_dep[i][0].velocidad  #self.pos_dep[i][0] es el dep
-            self.pos_dep[i][2] += self.pos_dep[i][0].moverse()[1]*self.pos_dep[i][0].velocidad  #i que tiene su velocidad
+            self.pos_dep[i][1] = (self.pos_dep[i][1]+self.pos_dep[i][0].moverse()[0]*self.pos_dep[i][0].velocidad)%tamano  #self.pos_dep[i][0] es el dep
+            self.pos_dep[i][2] = (self.pos_dep[i][2]+self.pos_dep[i][0].moverse()[1]*self.pos_dep[i][0].velocidad)%tamano  #i que tiene su velocidad
         for i in range(self.num_pre):
-            self.pos_pre[i][1] += self.pos_pre[i][0].moverse()[0]*self.pos_pre[i][0].velocidad  #self.pos_pre[i][0] es la pre
-            self.pos_pre[i][2] += self.pos_pre[i][0].moverse()[1]*self.pos_pre[i][0].velocidad  #i que tiene su velocidad
+            self.pos_pre[i][1] = (self.pos_pre[i][1]+self.pos_pre[i][0].moverse()[0]*self.pos_pre[i][0].velocidad)%tamano  #self.pos_pre[i][0] es la pre
+            self.pos_pre[i][2] = (self.pos_pre[i][2]+self.pos_pre[i][0].moverse()[1]*self.pos_pre[i][0].velocidad)%tamano  #i que tiene su velocidad
 #        pass
 
     def calcular_distancias(self):
