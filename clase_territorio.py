@@ -21,11 +21,11 @@ class Territorio(object):
     
     def asignar_pos(self):
         for i in range(self.num_dep):
-            self.pos_dep[i][1] = (self.pos_dep[i][1]+self.pos_dep[i][0].moverse()[0]*self.pos_dep[i][0].velocidad)%tamano  #self.pos_dep[i][0] es el dep
-            self.pos_dep[i][2] = (self.pos_dep[i][2]+self.pos_dep[i][0].moverse()[1]*self.pos_dep[i][0].velocidad)%tamano  #i que tiene su velocidad
+            self.pos_dep[i][1] = (self.pos_dep[i][1]+self.pos_dep[i][0].moverse()[0]*self.pos_dep[i][0].velocidad)%self.tamano  #self.pos_dep[i][0] es el dep
+            self.pos_dep[i][2] = (self.pos_dep[i][2]+self.pos_dep[i][0].moverse()[1]*self.pos_dep[i][0].velocidad)%self.tamano  #i que tiene su velocidad
         for i in range(self.num_pre):
-            self.pos_pre[i][1] = (self.pos_pre[i][1]+self.pos_pre[i][0].moverse()[0]*self.pos_pre[i][0].velocidad)%tamano  #self.pos_pre[i][0] es la pre
-            self.pos_pre[i][2] = (self.pos_pre[i][2]+self.pos_pre[i][0].moverse()[1]*self.pos_pre[i][0].velocidad)%tamano  #i que tiene su velocidad
+            self.pos_pre[i][1] = (self.pos_pre[i][1]+self.pos_pre[i][0].moverse()[0]*self.pos_pre[i][0].velocidad)%self.tamano  #self.pos_pre[i][0] es la pre
+            self.pos_pre[i][2] = (self.pos_pre[i][2]+self.pos_pre[i][0].moverse()[1]*self.pos_pre[i][0].velocidad)%self.tamano  #i que tiene su velocidad
 #        pass
 
     def calcular_distancias(self):
@@ -44,7 +44,7 @@ class Territorio(object):
 
             if len(pre_vecinas) > 0: 
                 k = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de la presa más cercana
-                self.lista_pre = self.lista_dep[i].comer(k, lista_pre)       #actualizo lista_pre
+                self.lista_pre = self.lista_dep[i].comer(k, self.lista_pre)       #actualizo lista_pre
                 del self.pos_pre[k]                                          #actualizo lista pos_pre
                 self.num_pre = len(self.lista_pre)                           #actualizo el num de presas en el territorio 
 #               pre_mas_cerc[i] = self.pos_pre[k]
