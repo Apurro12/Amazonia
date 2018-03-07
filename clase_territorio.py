@@ -1,19 +1,33 @@
 
 # coding: utf-8
 
-
-# In[1]:
-
 import random as rand
 import numpy as np
 
-
-# In[6]:
-
 class Territorio(object):
+"""La clase Territorio posee 5 atributos:
+                                          tamano (es el tamaño de la caja de simulación)
+                                          lista_pre (lista de objetos presas)
+                                          lista_dep (lista de objetos depredadores)
+                                          num_pre (número de presas)
+                                          num_dep (número de depredadores) 
+                             3 métodos: 
+                                        iniciar(): inicializa el territorio con posiciones aleatorias para las presas
+                                                   y los depredadores. Genera las listas pos_pre y pos_dep que contienen
+                                                   listas adentro de la forma [ID animal, pos x, pos y]
+                                        
+                                        calcular_distancias(): corre un loop sobre los i depredadores sobre las j presas y
+                                                               calcula las distancias entre los mismos. En el medio pregunta
+                                                               si el depredador i está en condiciones de comer a una presa.
+                                                               En caso afirmativo llama al método comer() del depredador i
+                                                               y luego actualiza las listas removiendo la presa.
+  
+                                        asignar_pos(): teniendo en cuenta los atributos de cada animal, calcula un vector
+                                                       random para que se mueva y actualiza las posiciones.
+"""
   
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
-        self.tamano = tamano              #un vector que define el tamano, sería la "diagonal del rect" en 2D
+        self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
         self.lista_dep = lista_dep            #lista que contiene los objetos depredadores
         self.num_pre = len(lista_pre)    #número de presas
@@ -26,11 +40,8 @@ class Territorio(object):
         for i in range(self.num_pre):
             self.pos_pre[i][1] = (self.pos_pre[i][1]+self.pos_pre[i][0].moverse()[0]*self.pos_pre[i][0].velocidad)%self.tamano  #self.pos_pre[i][0] es la pre
             self.pos_pre[i][2] = (self.pos_pre[i][2]+self.pos_pre[i][0].moverse()[1]*self.pos_pre[i][0].velocidad)%self.tamano  #i que tiene su velocidad
-#        pass
 
     def calcular_distancias(self):
-#        x_pre_cerc = [0]*self.num_dep
-#        y_pre_cerc = [0]*self.num_dep
         pre_mas_cerc = [0]*self.num_dep                            #lista de longitud  num_dep con las presas más cercanas
         for i in range(self.num_dep):                              #para cada depredador
             pre_vecinas = []
@@ -74,14 +85,8 @@ class Territorio(object):
         
         self.pos_pre = [[self.lista_pre[i], self.x_pre[i], self.y_pre[i]] for i in range(self.num_pre)]  #genero la lista de
         self.pos_dep = [[self.lista_dep[i], self.x_dep[i], self.y_dep[i]] for i in range(self.num_dep)]  #listas[obj,x,y]
+        #estas dos líneas hacen lo que haría un zip pero sin el problema de las tuplas
+
 #        return (self.pos_pre, self.pos_dep)
    
-
-     #self.pos_pre = list(zip(self.lista_pre, self.x_pre, self.y_pre))        #zip mergea en una lista nueva los elementos i de
-     #self.pos_dep = list(zip(self.lista_dep, self.x_dep, self.y_dep))         #cada lista
-    
-        
-    
-
-    
 

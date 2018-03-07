@@ -30,7 +30,7 @@ class Depredador(Animales):
     def __init__(self,ID):
         Animales.__init__(self)
         self.velocidad *= 3
-        self.vision *= 3
+        self.vision *= 9 
         self.rad_comer = self.vision/3. 
         self.ID = ID
         
