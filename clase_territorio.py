@@ -4,8 +4,7 @@
 import random as rand
 import numpy as np
 
-class Territorio(object):
-"""La clase Territorio posee 5 atributos:
+""" La clase Territorio posee 5 atributos:
                                           tamano (es el tamaño de la caja de simulación)
                                           lista_pre (lista de objetos presas)
                                           lista_dep (lista de objetos depredadores)
@@ -25,7 +24,7 @@ class Territorio(object):
                                         asignar_pos(): teniendo en cuenta los atributos de cada animal, calcula un vector
                                                        random para que se mueva y actualiza las posiciones.
 """
-  
+class Territorio(object):
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
@@ -47,9 +46,21 @@ class Territorio(object):
             pre_vecinas = []
             dist_pre_vecinas = []
             for j in range(self.num_pre):
-                dist = np.linalg.norm(np.array(self.pos_dep[i][1:])-np.array(self.pos_pre[j][1:])) #Calcula distancia entre
-                                                                                                   #dep i y pre j 
-                if dist < self.pos_dep[i][0].rad_comer:                                       
+                #dist = np.linalg.norm(np.array(self.pos_dep[i][1:])-np.array(self.pos_pre[j][1:])) #Calcula distancia entre
+                dx = np.linalg.norm(np.array(self.pos_dep[i][1])-np.array(self.pos_pre[j][1]))
+                dy = np.linalg.norm(np.array(self.pos_dep[i][2])-np.array(self.pos_pre[j][2]))
+
+                if (dx > self.tamano[0]*0.5):
+                    dx -= self.tamano[0]
+                if (dx <= -self.tamano[0]*0.5):
+                    dx += self.tamano[0]
+                if (dx > self.tamano[1]*0.5):
+                    dy -= self.tamano[1]
+                if (dx <= -self.tamano[1]*0.5):
+                    dy += self.tamano[1]
+
+                dist = np.sqrt(dx*dx+dy*dy)
+                if dist < self.pos_dep[i][0].vision:                                               #dep i y pre j
                     pre_vecinas.append(j)                          #arma lista de presas vecinas  
                     dist_pre_vecinas.append(dist)                  #arma lista de distancias de presas vecinas 
 
