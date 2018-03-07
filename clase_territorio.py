@@ -1,6 +1,7 @@
 
 # coding: utf-8
 
+
 # In[1]:
 
 import random as rand
@@ -11,8 +12,8 @@ import numpy as np
 
 class Territorio(object):
   
-    def __init__(self, tamaño, lista_pre, lista_dep): #ATRIBUTOS de territorio
-        self.tamaño = tamaño              #un vector que define el tamaño, sería la "diagonal del rect" en 2D
+    def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
+        self.tamano = tamano              #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
         self.lista_dep = lista_dep            #lista que contiene los objetos depredadores
         self.num_pre = len(lista_pre)    #número de presas
@@ -58,15 +59,15 @@ class Territorio(object):
         self.y_dep = []
         if self.num_dep > 0:
             for j in range(0, self.num_dep):
-                self.x_dep.append(rand.random()*self.tamaño[0])  #genera una posición random a partir de números
-                self.y_dep.append(rand.random()*self.tamaño[1])  #enteros dentro del rango 0 y el valor máximo de 
-                                                                    #x o y, que están definidos por el vector tamaño
+                self.x_dep.append(rand.random()*self.tamano[0])  #genera una posición random a partir de números
+                self.y_dep.append(rand.random()*self.tamano[1])  #enteros dentro del rango 0 y el valor máximo de 
+                                                                    #x o y, que están definidos por el vector tamano
         self.x_pre = []
         self.y_pre = []
         if self.num_pre > 0:
             for j in range(0, self.num_pre):
-                self.x_pre.append(rand.random()*self.tamaño[0])
-                self.y_pre.append(rand.random()*self.tamaño[1])
+                self.x_pre.append(rand.random()*self.tamano[0])
+                self.y_pre.append(rand.random()*self.tamano[1])
 
         
         self.pos_pre = [[self.lista_pre[i], self.x_pre[i], self.y_pre[i]] for i in range(self.num_pre)]  #genero la lista de

@@ -13,7 +13,7 @@ import numpy as np
 
 # In[2]:
 
-tamaño = [50,50]
+tamano = [50,50]
 
 
 # In[3]:
@@ -34,7 +34,7 @@ for i in range(0,50):
 
 # In[5]:
 
-pacha = territorio.Territorio(tamaño,presas,depredadores)
+pacha = territorio.Territorio(tamano,presas,depredadores)
 
 
 # In[6]:

@@ -32,6 +32,7 @@ class Presa(Animales):
         self.velocidad *= 2
         self.vision *= 4
         self.ID=ID
+
     
 class Depredador(Animales):
     def __init__(self,ID):
