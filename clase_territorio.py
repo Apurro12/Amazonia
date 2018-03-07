@@ -37,19 +37,21 @@ class Territorio(object):
             dist_pre_vecinas = []
             for j in range(self.num_pre):
                 dist = np.linalg.norm(np.array(self.pos_dep[i][1:])-np.array(self.pos_pre[j][1:])) #Calcula distancia entre
-                if dist < self.pos_dep[i][0].vision:                                               #dep i y pre j
+                                                                                                   #dep i y pre j 
+                if dist < self.pos_dep[i][0].rad_comer:                                       
                     pre_vecinas.append(j)                          #arma lista de presas vecinas  
                     dist_pre_vecinas.append(dist)                  #arma lista de distancias de presas vecinas 
+
             if len(pre_vecinas) > 0: 
-                k = dist_pre_vecinas.index(min(dist_pre_vecinas))  #encuentra el índice de la presa más cercana
-                pre_mas_cerc[i] = self.pos_pre[k]
-#                x_pre_cerc[i] = self.pos_pre[k][1]
-#                y_mas_cerc[i] = self.pos_pre[k][|2]
-            else:
-#                x_pre_cerc[i] = None
-#                y_mas_cerc[i] = None
-                pre_mas_cerc[i] = None                             #
-        return pre_mas_cerc                                        #devuelve lista de la presa más cercana de cada depredador
+                k = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de la presa más cercana
+                self.lista_pre = self.lista_dep[i].comer(k, lista_pre)       #actualizo lista_pre
+                del self.pos_pre[k]                                          #actualizo lista pos_pre
+                self.num_pre = len(self.lista_pre)                           #actualizo el num de presas en el territorio 
+#               pre_mas_cerc[i] = self.pos_pre[k]
+                
+#            else:
+#                pre_mas_cerc[i] = None                             #
+#        return pre_mas_cerc                                        #devuelve lista de la presa más cercana de cada depredador
                                                                    #yo quiero la posicion de la presa para que el cazador se
                                                                    #mueva en esa dirección. Implementar en depredador.
 
