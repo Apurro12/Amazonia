@@ -1,8 +1,3 @@
-
-# coding: utf-8
-
-# In[ ]:
-
 import random as rand
 import numpy as np
 
@@ -43,8 +38,6 @@ class Depredador(Animales):
 
         
 
-
-# In[ ]:
 
 #self.number_dep = territorio.num_dep
 #radio_vis = 4.
