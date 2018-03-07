@@ -5,28 +5,18 @@
 
 import Clases_animales as animales
 import clase_territorio as territorio
+import matplotlib.pyplot as plt
+import numpy as np
+
+#get_ipython().magic('matplotlib inline')
 
 
 # In[2]:
 
-tamaño = [20,20]
-lista_pre = ['p1','p2','p3']
-lista_dep = ['d1','d2','d3']
+tamaño = [50,50]
 
 
 # In[3]:
-
-a = territorio.Territorio(tamaño,lista_pre,lista_dep)
-
-
-# In[4]:
-
-a.iniciar()
-
-
-# ## Ahora tenemos que generar animales con IDs
-
-# In[5]:
 
 depredadores = []
 for i in range(0,20):
@@ -34,7 +24,7 @@ for i in range(0,20):
     
 
 
-# In[6]:
+# In[4]:
 
 presas = []
 for i in range(0,50):
@@ -42,22 +32,41 @@ for i in range(0,50):
     
 
 
-# In[8]:
+# In[5]:
 
-b = territorio.Territorio(tamaño,presas,depredadores)
-
-
-# In[9]:
-
-b.iniciar()
+pacha = territorio.Territorio(tamaño,presas,depredadores)
 
 
-# In[19]:
+# In[6]:
 
-b.asignar_pos()
+pacha.iniciar()
+
+
+# In[7]:
+
+pacha.asignar_pos()
 
 
 # In[ ]:
 
+[pacha.pos_dep[i][1] for i in range(pacha.num_dep)]
 
+
+# In[14]:
+
+
+
+
+# In[37]:
+
+plt.axis([-100,100,-100,100])
+plt.ion()
+
+for i in range(100):
+    plt.axis([-100,100,-100,100])
+    pacha.asignar_pos()
+    plt.scatter([pacha.pos_dep[i][1] for i in range(pacha.num_dep)], [pacha.pos_dep[i][2] for i in range(pacha.num_dep)], c='r')
+    plt.scatter([pacha.pos_pre[i][1] for i in range(pacha.num_pre)], [pacha.pos_pre[i][2] for i in range(pacha.num_pre)], c='b')
+    plt.pause(0.5)
+    plt.cla()
 
