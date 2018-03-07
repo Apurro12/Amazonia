@@ -35,7 +35,7 @@ class Depredador(Animales):
         self.ID = ID
         
     def comer(self,ID_pre_com,lista): # Le pasa el ID de la presa a comer en ID_pre_com, junto con la lista
-        del lista(ID_pre_com)         # de presas (en lista). Elimina el elemento list_pre_com de 
+        del lista[ID_pre_com]         # de presas (en lista). Elimina el elemento list_pre_com de 
         return lista
 
         

@@ -36,7 +36,20 @@ class Territorio(object):
             pre_vecinas = []
             dist_pre_vecinas = []
             for j in range(self.num_pre):
-                dist = np.linalg.norm(np.array(self.pos_dep[i][1:])-np.array(self.pos_pre[j][1:])) #Calcula distancia entre
+                #dist = np.linalg.norm(np.array(self.pos_dep[i][1:])-np.array(self.pos_pre[j][1:])) #Calcula distancia entre
+                dx = np.linalg.norm(np.array(self.pos_dep[i][1])-np.array(self.pos_pre[j][1]))
+                dy = np.linalg.norm(np.array(self.pos_dep[i][2])-np.array(self.pos_pre[j][2]))
+
+                if (dx > self.tamano[0]*0.5):
+		    dx -= self.tamano[0]
+                if (dx <= -self.tamano[0]*0.5):
+                    dx += self.tamano[0]
+                if (dx > self.tamano[1]*0.5):
+                    dy -= self.tamano[1]
+                if (dx <= -self.tamano[1]*0.5):
+                    dy += self.tamano[1]
+
+                dist = np.sqrt(dx*dx+dy*dy)
                 if dist < self.pos_dep[i][0].vision:                                               #dep i y pre j
                     pre_vecinas.append(j)                          #arma lista de presas vecinas  
                     dist_pre_vecinas.append(dist)                  #arma lista de distancias de presas vecinas 
