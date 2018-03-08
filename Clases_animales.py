@@ -79,7 +79,7 @@ class Depredador(Animales):
         """
         Animales.__init__(self)
         self.velocidad *= 3
-        self.vision *= 9 
+        self.vision *= 3 
         self.rad_comer = self.vision/3. 
         self.ID = ID
         
@@ -88,7 +88,12 @@ class Depredador(Animales):
         del lista[ID_pre_com]         # Elimina el elemento list_pre_com de la lista.
         return lista
 
-        
+    def descansar(self,ID_dep, tamano):               # Luego de comer el depredador va a descansar a su cueva
+        pos_cueva_dep = [0,0,0]
+        pos_cueva_dep[0] = ID_dep
+        pos_cueva_dep[1] = rand.random()*(tamano[0]/6)    # se define una posición random dentro de la cueva
+        pos_cueva_dep[2] = rand.random()*(tamano[1]/6)
+        return pos_cueva_dep    
 
 
 #self.number_dep = territorio.num_dep
