@@ -17,7 +17,7 @@ La **clase Animales** posee 2 atributos:
 				
 """
 class Animales(object):
-    def __init__(self,velocidad=1.,vision=1.):
+    def __init__(self,velocidad=0.1,vision=1.):
         """
         :(1)*Velocidad*:define la amplificacion del vector de movimiento unitario. 
 	:(2)*Vision*: Define el rango con que el animal detecta a otros.
@@ -67,8 +67,8 @@ La **clase Depredador** posee 1 metodo:
 class Depredador(Animales):
     def __init__(self,ID):
         Animales.__init__(self)
-        self.velocidad *= 3
-        self.vision *= 3 
+        self.velocidad *= 10
+        self.vision *= 6 
         self.rad_comer = self.vision/3. 
         self.ID = ID
         

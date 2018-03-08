@@ -105,11 +105,14 @@ class Territorio(object):
                     dist_pre_vecinas.append(dist)                  #arma lista de distancias de presas vecinas 
 
             if len(pre_vecinas) > 0: 
-                k = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de la presa más cercana
+                l = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de distancia minima
+                                                                             #entre una presa "j" y el dep "i". 
+                k = pre_vecinas[l]                                           #Busca la presa presa "j" en la lista de 
+                                                                             #presas vecinas.
+                                                                             # distancia al predador i
                 self.lista_pre = self.lista_dep[i].comer(k, self.lista_pre)       #actualizo lista_pre
                 del self.pos_pre[k]                                          #actualizo lista pos_pre
                 self.num_pre = len(self.lista_pre)                           #actualizo el num de presas en el territorio 
-
                 pos_cueva_dep = self.lista_dep[i].descansar(self.lista_dep[i], self.tamano)  #lista [id_dep, pos en x cueva , pos en y cueva]
                 self.pos_cueva.append(pos_cueva_dep)                         #lista de listas
                 self.cueva_ID.append(self.lista_dep[i])
