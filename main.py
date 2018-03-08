@@ -40,7 +40,7 @@ for i in range(50):
 
 # In[5]:
 #Instanciamos el objeto territorio: inicializamos el tamaño, el numero de presas y predadores
-pacha = territorio.Territorio(tamano,presas,depredadores)
+pacha = territorio.Pacha(tamano,presas,depredadores)
 
 
 # In[6]:

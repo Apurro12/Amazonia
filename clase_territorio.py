@@ -7,7 +7,7 @@ __author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlo
 import random as rand
 import numpy as np
 import pydoc
-""" La **clase Territorio** posee 5 atributos:
+""" La **clase Pacha** posee 5 atributos:
                                           *tamano* (es el tamaño de la caja de simulación)
                                           *lista_pre* (lista de objetos presas)
                                           *lista_dep* (lista de objetos depredadores)
@@ -32,12 +32,14 @@ import pydoc
                                         *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector
                                                        random para que se mueva y actualiza las posiciones.
 """
-class Territorio(object):
+class Pacha(object):
     """
     Attributes:
 	tamaño=tamano	Dimensiones del territorio [x,y]
 	lista_pre	Lista que contiene las presas
 	lista_dep	Lista que contiene los depredadores
+	num_pre		número de presas
+	num_dep		número de depredadores
 	"""
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
