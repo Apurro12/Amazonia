@@ -1,22 +1,24 @@
 
 # coding: utf-8
 
+__author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano "
+
+
 import random as rand
 import numpy as np
-
-""" La clase Territorio posee 5 atributos:
-                                          tamano (es el tamaño de la caja de simulación)
-                                          lista_pre (lista de objetos presas)
-                                          lista_dep (lista de objetos depredadores)
-                                          num_pre (número de presas)
-                                          num_dep (número de depredadores) 
+import pydoc
+""" La **clase Territorio** posee 5 atributos:
+                                          *tamano* (es el tamaño de la caja de simulación)
+                                          *lista_pre* (lista de objetos presas)
+                                          *lista_dep* (lista de objetos depredadores)
+                                          *num_pre* (número de presas)
+                                          *num_dep* (número de depredadores) 
                              3 métodos: 
-                                        iniciar(): inicializa el territorio con posiciones aleatorias para las presas
-                                                   y los depredadores (a las presas las acomoda en torno al centro de 
-                                                   la caja). Genera las listas "pos_pre" y "pos_dep" que contienen
-                                                   listas adentro de la forma [ID animal, pos x, pos y].
+                                        *iniciar()*: inicializa el territorio con posiciones aleatorias para las presas
+                                                   y los depredadores. Genera las listas pos_pre y pos_dep que contienen
+                                                   listas adentro de la forma [ID animal, pos x, pos y]
                                         
-                                        calcular_distancias(): corre un loop sobre los i depredadores sobre las j presas y
+                                        *calcular_distancias()*: corre un loop sobre los i depredadores sobre las j presas y
                                                                calcula las distancias entre los mismos. En el medio pregunta
                                                                si el depredador i está en condiciones de comer a una presa, 
                                                                en funcion del atributo radio de vision ("rad_vis") de los 
@@ -27,13 +29,16 @@ import numpy as np
                                                                en el paso siguiente el depredador aparece en su cueva en una 
                                                                posición random.
   
-                                        asignar_pos(): Para el caso de los depredadores, pregunta si hay depredadores que 
-                                                       deben descansar, en caso afirmativo les asigna la posición dentro de 
-                                                       su cueva. En caso negativo, teniendo en cuenta sus atributos de cada 
-                                                       calcula un vector random para que se mueva y actualiza las posiciones.
-                                                       Para la presa asigna un vector random de forma análoga al depredador.
+                                        *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector
+                                                       random para que se mueva y actualiza las posiciones.
 """
 class Territorio(object):
+    """
+    Attributes:
+	tamaño=tamano	Dimensiones del territorio [x,y]
+	lista_pre	Lista que contiene las presas
+	lista_dep	Lista que contiene los depredadores
+	"""
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
