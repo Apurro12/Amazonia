@@ -13,6 +13,7 @@ import Clases_animales as animales
 import clase_territorio as territorio
 import matplotlib.pyplot as plt
 import numpy as np
+import pydoc
 
 #get_ipython().magic('matplotlib inline')
 

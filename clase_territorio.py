@@ -7,33 +7,14 @@ __author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlo
 import random as rand
 import numpy as np
 import pydoc
-""" La **clase Territorio** posee 5 atributos:
-                                          *tamano* (es el tamaño de la caja de simulación)
-                                          *lista_pre* (lista de objetos presas)
-                                          *lista_dep* (lista de objetos depredadores)
-                                          *num_pre* (número de presas)
-                                          *num_dep* (número de depredadores) 
-                             3 métodos: 
-                                        *iniciar()*: inicializa el territorio con posiciones aleatorias para las presas
-                                                   y los depredadores. Genera las listas pos_pre y pos_dep que contienen
-                                                   listas adentro de la forma [ID animal, pos x, pos y]
-                                        
-                                        *calcular_distancias()*: corre un loop sobre los i depredadores sobre las j presas y
-                                                               calcula las distancias entre los mismos. En el medio pregunta
-                                                               si el depredador i está en condiciones de comer a una presa.
-                                                               En caso afirmativo llama al método comer() del depredador i
-                                                               y luego actualiza las listas removiendo la presa.
-  
-                                        *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector
-                                                       random para que se mueva y actualiza las posiciones.
-"""
+
 class Territorio(object):
     """
     Attributes:
 	tamaño=tamano	Dimensiones del territorio [x,y]
 	lista_pre	Lista que contiene las presas
 	lista_dep	Lista que contiene los depredadores
-	"""
+    """
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
@@ -42,6 +23,7 @@ class Territorio(object):
         self.num_dep = len(lista_dep)    #número de depredadores  
     
     def asignar_pos(self):
+        "Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su posicion anterior"
         for i in range(self.num_dep):
             self.pos_dep[i][1] = (self.pos_dep[i][1]+self.pos_dep[i][0].moverse()[0]*self.pos_dep[i][0].velocidad)%self.tamano  #self.pos_dep[i][0] es el dep
             self.pos_dep[i][2] = (self.pos_dep[i][2]+self.pos_dep[i][0].moverse()[1]*self.pos_dep[i][0].velocidad)%self.tamano  #i que tiene su velocidad
@@ -50,6 +32,11 @@ class Territorio(object):
             self.pos_pre[i][2] = (self.pos_pre[i][2]+self.pos_pre[i][0].moverse()[1]*self.pos_pre[i][0].velocidad)%self.tamano  #i que tiene su velocidad
 
     def calcular_distancias(self):
+        """Funcion que calcula la distancia minima distancia entre un predador y alguna presa.
+           Return: Pre_mas_cerc.
+
+        """
+          
         pre_mas_cerc = [0]*self.num_dep                            #lista de longitud  num_dep con las presas más cercanas
         for i in range(self.num_dep):                              #para cada depredador
             pre_vecinas = []
@@ -87,7 +74,7 @@ class Territorio(object):
                                                                    #mueva en esa dirección. Implementar en depredador.
 
     def iniciar(self):
-        
+        "Inicializa las posiciones de los animales en el territorio."
         self.x_dep = []
         self.y_dep = []
         if self.num_dep > 0:
