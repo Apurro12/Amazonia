@@ -7,6 +7,7 @@ __author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlo
 import random as rand
 import numpy as np
 import pydoc
+
 """ La **clase Territorio** posee 5 atributos:
                                           *tamano* (es el tamaño de la caja de simulación)
                                           *lista_pre* (lista de objetos presas)
@@ -32,13 +33,14 @@ import pydoc
                                         *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector
                                                        random para que se mueva y actualiza las posiciones.
 """
+
 class Territorio(object):
     """
     Attributes:
 	tamaño=tamano	Dimensiones del territorio [x,y]
 	lista_pre	Lista que contiene las presas
 	lista_dep	Lista que contiene los depredadores
-	"""
+    """
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
@@ -49,8 +51,10 @@ class Territorio(object):
         self.cueva_ID = []  
     
     def asignar_pos(self):
+        "Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su posicion anterior"
 
 ####   DEPREDADORES
+
         for i in range(self.num_dep):
 
             if self.lista_dep[i] in self.cueva_ID:         #si el dep i está en cueva_ID (o sea, comió y vuelve a su cueva)
@@ -76,6 +80,11 @@ class Territorio(object):
 
 
     def calcular_distancias(self):
+        """Funcion que calcula la distancia minima distancia entre un predador y alguna presa.
+           Return: Pre_mas_cerc.
+
+        """
+          
         pre_mas_cerc = [0]*self.num_dep                            #lista de longitud  num_dep con las presas más cercanas
         for i in range(self.num_dep):                              #para cada depredador
             
@@ -126,7 +135,7 @@ class Territorio(object):
                                                                    #mueva en esa dirección. Implementar en depredador.
 
     def iniciar(self):
-        
+        "Inicializa las posiciones de los animales en el territorio."
         self.x_dep = []
         self.y_dep = []
         if self.num_dep > 0:
