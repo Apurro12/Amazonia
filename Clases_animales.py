@@ -51,7 +51,7 @@ class Presa(Animales):
     def __init__(self,ID):
         "Define el valor de los atributos de la presa"
         Animales.__init__(self)
-        self.velocidad *= 1#Defino la velocidad de la presa
+        self.velocidad *= 2#Defino la velocidad de la presa
         self.vision *= 1#Defino el rango de vision de la presa
         self.ID = ID#Defino el ID de la presa
 
@@ -76,9 +76,9 @@ class Depredador(Animales):
         Define el valor de los atributos del predador.
         """
         Animales.__init__(self)
-        self.velocidad *= 10
-        self.vision *= 6 
-        self.rad_comer = self.vision/3. 
+        self.velocidad *= 20
+        self.vision *= 20 
+        self.rad_comer = 3 #self.vision 
         self.ID = ID
         
     def comer(self,ID_pre_com,lista): 
@@ -92,6 +92,14 @@ class Depredador(Animales):
         pos_cueva_dep[1] = rand.random()*(tamano[0]/6)    # se define una posición random dentro de la cueva
         pos_cueva_dep[2] = rand.random()*(tamano[1]/6)
         return pos_cueva_dep    
+
+    def cazar(self,ID_dep, componentes):
+        desplazamiento = [0,0,0]
+        desplazamiento[0] = ID_dep
+        desplazamiento[1] = (componentes[0]/(np.sqrt(componentes[0]**2+componentes[1]**2)))
+        desplazamiento[2] = (componentes[1]/(np.sqrt(componentes[0]**2+componentes[1]**2)))            
+
+        return desplazamiento
 
 
 #self.number_dep = territorio.num_dep

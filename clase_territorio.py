@@ -49,9 +49,15 @@ class Pacha(object):
         self.num_dep = len(lista_dep)    #número de depredadores
         self.pos_cueva = []
         self.cueva_ID = []  
+        self.despl_dep = []
+        self.despl_dep_ID = []
     
     def asignar_pos(self):
-        "Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su posicion anterior"
+        """"Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su posicion anterior. En el caso
+        de los depredadores define 3 tipos de movimiento. Si come, vuelve a la cueva. Si caza, su proxima posición está defin
+        ida por el vector desplazamiento calculado en calcular_distancias. Si ninguna de las condiciones anteriores se cumple
+        entonces se mueve aleatoriamente. Las presas se mueven aleatoriamente siempre.   
+        """
 
 ####   DEPREDADORES
 
@@ -61,6 +67,11 @@ class Pacha(object):
                z = self.cueva_ID.index(self.lista_dep[i])  #busca el índice del depredador i en la lista cueva_ID 
                self.pos_dep[i] = self.pos_cueva[z]
             
+            elif self.lista_dep[i] in self.despl_dep_ID:          #si el dep i caza entonces se mueve con el vector
+               z = self.despl_dep_ID.index(self.lista_dep[i])     #desplazamiento (el % es por las cond. period)
+               self.pos_dep[i][1] = (self.pos_dep[i][1]+self.despl_dep[z][1]*self.lista_dep[i].velocidad)%self.tamano[0]
+               self.pos_dep[i][2] = (self.pos_dep[i][2]+self.despl_dep[z][2]*self.lista_dep[i].velocidad)%self.tamano[1]
+
             else:           
 
                 self.pos_dep[i][1] = (self.pos_dep[i][1]+self.pos_dep[i][0].moverse()[0]*self.pos_dep[i][0].velocidad)%self.tamano[0]  #self.pos_dep[i][0] es el dep
@@ -69,6 +80,8 @@ class Pacha(object):
 
         self.pos_cueva = []         #vacía las listas para el próximo paso
         self.cueva_ID = []
+        self.despl_dep = []
+        self.despl_dep_ID = []
 
 ###   PRESAS
 
@@ -80,9 +93,8 @@ class Pacha(object):
 
 
     def calcular_distancias(self):
-        """Funcion que calcula la distancia minima distancia entre un predador y alguna presa.
-           Return: Pre_mas_cerc.
-
+        """Funcion que calcula la distancia minima entre un depredador y alguna presa. Distingue entre las presas que están 
+           dentro del rango de visión y la que ya cayó dentro del rango de comer.
         """
           
         pre_mas_cerc = [0]*self.num_dep                            #lista de longitud  num_dep con las presas más cercanas
@@ -92,19 +104,20 @@ class Pacha(object):
 
             pre_vecinas = []
             dist_pre_vecinas = []
+            componentes_dist_pre_v = []
             for j in range(self.num_pre):
                 #dist = np.linalg.norm(np.array(self.pos_dep[i][1:])-np.array(self.pos_pre[j][1:])) #Calcula distancia entre
-                dx = self.pos_dep[i][1]-self.pos_pre[j][1]
-                dy = self.pos_dep[i][2]-self.pos_pre[j][2]
+                dx = -self.pos_dep[i][1]+self.pos_pre[j][1]
+                dy = -self.pos_dep[i][2]+self.pos_pre[j][2]
                 
 #                print(i, j, dx)
 
                 if dx > self.tamano[0]*0.5:
-                    dx -= self.tamano[0]
+                    dx += -self.tamano[0]
                 if dx <= -self.tamano[0]*0.5:
                     dx += self.tamano[0]
                 if dy > self.tamano[1]*0.5:
-                    dy -= self.tamano[1]
+                    dy += -self.tamano[1]
                 if dy <= -self.tamano[1]*0.5:
                     dy += self.tamano[1]
 
@@ -112,19 +125,28 @@ class Pacha(object):
                 if dist < self.pos_dep[i][0].vision:                                               #dep i y pre j
                     pre_vecinas.append(j)                          #arma lista de presas vecinas  
                     dist_pre_vecinas.append(dist)                  #arma lista de distancias de presas vecinas 
+                    componentes_dist_pre_v.append([dx,dy])
 
-            if len(pre_vecinas) > 0: 
+            if len(pre_vecinas) > 0:
                 l = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de distancia minima
                                                                              #entre una presa "j" y el dep "i". 
                 k = pre_vecinas[l]                                           #Busca la presa presa "j" en la lista de 
                                                                              #presas vecinas.
                                                                              # distancia al predador i
-                self.lista_pre = self.lista_dep[i].comer(k, self.lista_pre)       #actualizo lista_pre
-                del self.pos_pre[k]                                          #actualizo lista pos_pre
-                self.num_pre = len(self.lista_pre)                           #actualizo el num de presas en el territorio 
-                pos_cueva_dep = self.lista_dep[i].descansar(self.lista_dep[i], self.tamano)  #lista [id_dep, pos en x cueva , pos en y cueva]
-                self.pos_cueva.append(pos_cueva_dep)                         #lista de listas
-                self.cueva_ID.append(self.lista_dep[i])
+                if min(dist_pre_vecinas) < self.lista_dep[i].rad_comer: 
+
+                    self.lista_pre = self.lista_dep[i].comer(k, self.lista_pre)    
+                    del self.pos_pre[k]                                          
+                    self.num_pre = len(self.lista_pre)                           
+                    pos_cueva_dep = self.lista_dep[i].descansar(self.lista_dep[i], self.tamano)  #lista [id_dep,cuevax,cuevay] 
+                    self.pos_cueva.append(pos_cueva_dep)                                         #lista de listas
+                    self.cueva_ID.append(self.lista_dep[i])                               #estas listas va a usar asignar_pos
+             
+                elif min(dist_pre_vecinas) < self.lista_dep[i].vision:
+                    self.despl_dep.append(self.lista_dep[i].cazar(self.lista_dep[i],componentes_dist_pre_v[l])) #llamo a cazar 
+                    self.despl_dep_ID.append(self.lista_dep[i])                                   # y le paso las componentes 
+                                                                                                  # del vector desplazamiento
+                                                                                          #estas listas va a usar asignar_pos
 
 #               pre_mas_cerc[i] = self.pos_pre[k]
                 

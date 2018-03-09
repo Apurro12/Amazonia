@@ -26,7 +26,7 @@ tamano = [50,50]
 # In[3]:
 #El usuario define la cantidad de depredadores que se van a generar
 depredadores = []
-for i in range(2):
+for i in range(3):
     depredadores.append(animales.Depredador(i))
     
 
@@ -61,6 +61,6 @@ for i in range(1000):
     plt.scatter([pacha.pos_dep[i][1] for i in range(pacha.num_dep)], [pacha.pos_dep[i][2] for i in range(pacha.num_dep)], c='r')
     plt.scatter([pacha.pos_pre[i][1] for i in range(pacha.num_pre)], [pacha.pos_pre[i][2] for i in range(pacha.num_pre)], c='b')
 #    plt.savefig('paso'+str(i)+'.png', dpi=100)
-    plt.pause(0.1)
+    plt.pause(0.5)
     plt.cla()
 
