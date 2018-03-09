@@ -51,7 +51,7 @@ class Presa(Animales):
     def __init__(self,ID):
         "Define el valor de los atributos de la presa"
         Animales.__init__(self)
-        self.velocidad *= 2#Defino la velocidad de la presa
+        self.velocidad *= 5#Defino la velocidad de la presa
         self.vision *= 1#Defino el rango de vision de la presa
         self.ID = ID#Defino el ID de la presa
 
@@ -76,9 +76,9 @@ class Depredador(Animales):
         Define el valor de los atributos del predador.
         """
         Animales.__init__(self)
-        self.velocidad *= 20
-        self.vision *= 20 
-        self.rad_comer = 3 #self.vision 
+        self.velocidad *= 15
+        self.vision *= 15 
+        self.rad_comer = 2 #self.vision 
         self.ID = ID
         
     def comer(self,ID_pre_com,lista): 
