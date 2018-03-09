@@ -26,7 +26,7 @@ tamano = [50,50]
 # In[3]:
 #El usuario define la cantidad de depredadores que se van a generar
 depredadores = []
-for i in range(3):
+for i in range(5):
     depredadores.append(animales.Depredador(i))
     
 
@@ -34,7 +34,7 @@ for i in range(3):
 # In[4]:
 #El usuario define el numero de presas que se van a gerenar
 presas = []
-for i in range(15):
+for i in range(50):
     presas.append(animales.Presa(i))
     
 
@@ -61,6 +61,6 @@ for i in range(1000):
     plt.scatter([pacha.pos_dep[i][1] for i in range(pacha.num_dep)], [pacha.pos_dep[i][2] for i in range(pacha.num_dep)], c='r')
     plt.scatter([pacha.pos_pre[i][1] for i in range(pacha.num_pre)], [pacha.pos_pre[i][2] for i in range(pacha.num_pre)], c='b')
 #    plt.savefig('./movie/paso'+str(i)+'.png', dpi=100)
-    plt.pause(0.5)
+    plt.pause(0.2)
     plt.cla()
 
