@@ -40,7 +40,7 @@ class Pacha(object):
 	lista_dep	Lista que contiene los depredadores
 	num_pre		número de presas
 	num_dep		número de depredadores
-	"""
+    """
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
@@ -51,8 +51,10 @@ class Pacha(object):
         self.cueva_ID = []  
     
     def asignar_pos(self):
+        "Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su posicion anterior"
 
 ####   DEPREDADORES
+
         for i in range(self.num_dep):
 
             if self.lista_dep[i] in self.cueva_ID:         #si el dep i está en cueva_ID (o sea, comió y vuelve a su cueva)
@@ -78,6 +80,11 @@ class Pacha(object):
 
 
     def calcular_distancias(self):
+        """Funcion que calcula la distancia minima distancia entre un predador y alguna presa.
+           Return: Pre_mas_cerc.
+
+        """
+          
         pre_mas_cerc = [0]*self.num_dep                            #lista de longitud  num_dep con las presas más cercanas
         for i in range(self.num_dep):                              #para cada depredador
             
@@ -107,11 +114,14 @@ class Pacha(object):
                     dist_pre_vecinas.append(dist)                  #arma lista de distancias de presas vecinas 
 
             if len(pre_vecinas) > 0: 
-                k = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de la presa más cercana
+                l = dist_pre_vecinas.index(min(dist_pre_vecinas))            #encuentra el índice de distancia minima
+                                                                             #entre una presa "j" y el dep "i". 
+                k = pre_vecinas[l]                                           #Busca la presa presa "j" en la lista de 
+                                                                             #presas vecinas.
+                                                                             # distancia al predador i
                 self.lista_pre = self.lista_dep[i].comer(k, self.lista_pre)       #actualizo lista_pre
                 del self.pos_pre[k]                                          #actualizo lista pos_pre
                 self.num_pre = len(self.lista_pre)                           #actualizo el num de presas en el territorio 
-
                 pos_cueva_dep = self.lista_dep[i].descansar(self.lista_dep[i], self.tamano)  #lista [id_dep, pos en x cueva , pos en y cueva]
                 self.pos_cueva.append(pos_cueva_dep)                         #lista de listas
                 self.cueva_ID.append(self.lista_dep[i])
@@ -125,7 +135,7 @@ class Pacha(object):
                                                                    #mueva en esa dirección. Implementar en depredador.
 
     def iniciar(self):
-        
+        "Inicializa las posiciones de los animales en el territorio."
         self.x_dep = []
         self.y_dep = []
         if self.num_dep > 0:
