@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 # coding: utf-8
 """Clase Pacha
 
@@ -22,10 +15,9 @@ Atributos:
 Metodos:
     3 métodos:
         *iniciar()*: inicializa el territorio con posiciones aleatorias para las presas y los depredadores. Genera las listas pos_pre y pos_dep que contienen listas adentro de la forma [ID animal, pos x, pos y]
-        *calcular_distancias()*: corre un loop sobre los i depredadores sobre las j presas y calcula las distancias entre los mismos. En el medio pregunta si el depredador i está en condiciones de comer a una presa, en funcion del atributo radio de vision ("rad_vis") de los depredadores. En caso afirmativo, llama al método del depredador, "comer(presa_a_ser_comida,lista_de_presas)" y actualiza las listas removiendo la presa. Luego, llama al metodo descansar(qué_depredador_descansará,tamaño_del_ecosist),                                                             del depredador. Este método manda al depredador a su cueva y, en el paso siguiente el depredador aparece en su cueva en una posición random.
+        *calcular_distancias()*: corre un loop sobre los i depredadores sobre las j presas y calcula las distancias entre los mismos. En el medio pregunta si el depredador i está en condiciones de comer a una presa, en funcion del atributo radio de vision ("rad_vis") de los depredadores. En caso afirmativo, llama al método del depredador, "comer(presa_a_ser_comida,lista_de_presas)" y actualiza las listas removiendo la presa. Luego, llama al metodo descansar(qué_depredador_descansará,tamano_del_ecosist),                                                             del depredador. Este método manda al depredador a su cueva y, en el paso siguiente el depredador aparece en su cueva en una posición random.
         *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector random para que se mueva y actualiza las posiciones.
 
-    
 """
 
 
@@ -34,10 +26,7 @@ Metodos:
 import random as rand
 import numpy as np
 import pydoc
-""" 
-  
-                                        
-"""
+
 class Pacha(object):
     """
     Attributes:

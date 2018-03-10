@@ -1,25 +1,4 @@
-
-
-
 # -*- coding: utf-8 -*-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """Clase Animales
 
 En este archivo se generan tres clases: __Clase Animales__, __Clase Depredador__ y __Clase Presa__.
@@ -31,13 +10,9 @@ Desarrolladores:
     Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano
 """
 
-
-
-
 import pydoc
 import random as rand
 import numpy as np
-
 
 class Animales(object):
     """Generador del objeto animales.
@@ -48,8 +23,6 @@ class Animales(object):
 	(2)Vision(float) 	Define el rango con que el animal detecta a otros.
     """
     def __init__(self,velocidad=0.1,vision=1.):
-
-
         """Define los atributos de la clase animal, velocidad y vision; los dos son floats.
         Parametros:
             Velocidad(float): Definida por el usuario. Es un parametro que indica cuanto se 
@@ -81,10 +54,11 @@ class Presa(Animales):
     espacio generado. Se mueven a una velocidad en todas las instancias del programa.
     Attributes:
          La __clase Presa__ posee 3 atributos:
-         (1 y 2)Vision (float) y Velocidad(float): heredados de Animales, que se re-inicializan en la clase presa.
+         (1 y 2)Vision (float) y Velocidad(float): heredados de Animales, que se re-inicializan en
+         la clase presa.
          (3)ID(int): Un identificador del objeto presa.
-
         """
+
     def __init__(self,ID):
         "Define el valor de los atributos de la presa"
         Animales.__init__(self)
@@ -113,12 +87,8 @@ class Depredador(Animales):
         """
     def __init__(self,ID):
         """
-
-
-
         Define el valor de los atributos del predador: Velocidad, vision, radio de comer
         (rad_com), y ID.
->>>>>>> parent of 049707f... Revert "Terminada la documentacion. Carga de los archivos html y la doc en los archvos .py"
         """
         Animales.__init__(self)
         self.velocidad *= 15
@@ -127,9 +97,6 @@ class Depredador(Animales):
         self.ID = ID
         
     def comer(self,ID_pre_com,lista): 
-
-
-
         """Metodo que elimina a la presa que fue comida por el depredador. Devuelve una lista.
         Parametros:
              ID_pre_com(int): Es un indicador de la presa que fue comida

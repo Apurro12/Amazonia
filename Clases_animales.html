@@ -27,8 +27,9 @@ Desarrolladores:&nbsp;<br>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pydoc.html">pydoc</a><br>
 </td><td width="25%" valign=top><a href="random.html">random</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -71,7 +72,7 @@ Parametros:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;vision(float):&nbsp;Definida&nbsp;por&nbsp;el&nbsp;usuario.&nbsp;Es&nbsp;un&nbsp;parametro&nbsp;que&nbsp;indica&nbsp;el&nbsp;radio&nbsp;de<br>
 &nbsp;&nbsp;&nbsp;&nbsp;deteccion&nbsp;de&nbsp;otros&nbsp;animales.</tt></dd></dl>
 
-<dl><dt><a name="Animales-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.&nbsp;Devuelve&nbsp;una&nbsp;lista&nbsp;con&nbsp;el&nbsp;vector&nbsp;que&nbsp;indica&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.</tt></dd></dl>
+<dl><dt><a name="Animales-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -113,6 +114,8 @@ Methods defined here:<br>
 <dl><dt><a name="Depredador-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;del&nbsp;predador:&nbsp;Velocidad,&nbsp;vision,&nbsp;radio&nbsp;de&nbsp;comer<br>
 (rad_com),&nbsp;y&nbsp;ID.</tt></dd></dl>
 
+<dl><dt><a name="Depredador-cazar"><strong>cazar</strong></a>(self, ID_dep, componentes)</dt></dl>
+
 <dl><dt><a name="Depredador-comer"><strong>comer</strong></a>(self, ID_pre_com, lista)</dt><dd><tt>Metodo&nbsp;que&nbsp;elimina&nbsp;a&nbsp;la&nbsp;presa&nbsp;que&nbsp;fue&nbsp;comida&nbsp;por&nbsp;el&nbsp;depredador.&nbsp;Devuelve&nbsp;una&nbsp;lista.<br>
 Parametros:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID_pre_com(int):&nbsp;Es&nbsp;un&nbsp;indicador&nbsp;de&nbsp;la&nbsp;presa&nbsp;que&nbsp;fue&nbsp;comida<br>
@@ -127,7 +130,7 @@ Parametros:<br>
 
 <hr>
 Methods inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
-<dl><dt><a name="Depredador-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.&nbsp;Devuelve&nbsp;una&nbsp;lista&nbsp;con&nbsp;el&nbsp;vector&nbsp;que&nbsp;indica&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.</tt></dd></dl>
+<dl><dt><a name="Depredador-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
@@ -149,7 +152,8 @@ Esta&nbsp;clase&nbsp;produce&nbsp;presas,&nbsp;cuya&nbsp;principal&nbsp;caracter
 espacio&nbsp;generado.&nbsp;Se&nbsp;mueven&nbsp;a&nbsp;una&nbsp;velocidad&nbsp;en&nbsp;todas&nbsp;las&nbsp;instancias&nbsp;del&nbsp;programa.<br>
 Attributes:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La&nbsp;__clase&nbsp;Presa__&nbsp;posee&nbsp;3&nbsp;atributos:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;y&nbsp;2)Vision&nbsp;(float)&nbsp;y&nbsp;Velocidad(float):&nbsp;heredados&nbsp;de&nbsp;<a href="#Animales">Animales</a>,&nbsp;que&nbsp;se&nbsp;re-inicializan&nbsp;en&nbsp;la&nbsp;clase&nbsp;presa.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;y&nbsp;2)Vision&nbsp;(float)&nbsp;y&nbsp;Velocidad(float):&nbsp;heredados&nbsp;de&nbsp;<a href="#Animales">Animales</a>,&nbsp;que&nbsp;se&nbsp;re-inicializan&nbsp;en<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la&nbsp;clase&nbsp;presa.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)ID(int):&nbsp;Un&nbsp;identificador&nbsp;del&nbsp;objeto&nbsp;presa.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
@@ -159,11 +163,11 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Presa-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;de&nbsp;la&nbsp;presa.&nbsp;Modifica&nbsp;los&nbsp;atributos&nbsp;heredados&nbsp;de&nbsp;la&nbsp;Clase&nbsp;Animal,&nbsp;velocidad&nbsp;y&nbsp;vision.&nbsp;Ademas&nbsp;define&nbsp;el&nbsp;ID&nbsp;de&nbsp;la&nbsp;presa</tt></dd></dl>
+<dl><dt><a name="Presa-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;de&nbsp;la&nbsp;presa</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
-<dl><dt><a name="Presa-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.&nbsp;Devuelve&nbsp;una&nbsp;lista&nbsp;con&nbsp;el&nbsp;vector&nbsp;que&nbsp;indica&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.</tt></dd></dl>
+<dl><dt><a name="Presa-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
