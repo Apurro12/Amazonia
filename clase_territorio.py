@@ -1,36 +1,35 @@
-
 # coding: utf-8
+"""Clase Pacha
 
-__author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano "
+Desarrolladores:
+    Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano.
+
+Atributos:
+    La **clase Pacha** posee 5 atributos:
+        *tamano* (es el tamano de la caja de simulación)
+        *lista_pre* (lista de objetos presas)  
+        *lista_dep* (lista de objetos depredadores)
+        *num_pre* (número de presas)
+        *num_dep* (número de depredadores) 
+
+Metodos:
+    3 métodos:
+        *iniciar()*: inicializa el territorio con posiciones aleatorias para las presas y los depredadores. Genera las listas pos_pre y pos_dep que contienen listas adentro de la forma [ID animal, pos x, pos y]
+        *calcular_distancias()*: corre un loop sobre los i depredadores sobre las j presas y calcula las distancias entre los mismos. En el medio pregunta si el depredador i está en condiciones de comer a una presa, en funcion del atributo radio de vision ("rad_vis") de los depredadores. En caso afirmativo, llama al método del depredador, "comer(presa_a_ser_comida,lista_de_presas)" y actualiza las listas removiendo la presa. Luego, llama al metodo descansar(qué_depredador_descansará,tamaño_del_ecosist),                                                             del depredador. Este método manda al depredador a su cueva y, en el paso siguiente el depredador aparece en su cueva en una posición random.
+        *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector random para que se mueva y actualiza las posiciones.
+
+    
+"""
+
+
 
 
 import random as rand
 import numpy as np
 import pydoc
-""" La **clase Pacha** posee 5 atributos:
-                                          *tamano* (es el tamaño de la caja de simulación)
-                                          *lista_pre* (lista de objetos presas)
-                                          *lista_dep* (lista de objetos depredadores)
-                                          *num_pre* (número de presas)
-                                          *num_dep* (número de depredadores) 
-                             3 métodos: 
-                                        *iniciar()*: inicializa el territorio con posiciones aleatorias para las presas
-                                                   y los depredadores. Genera las listas pos_pre y pos_dep que contienen
-                                                   listas adentro de la forma [ID animal, pos x, pos y]
-                                        
-                                        *calcular_distancias()*: corre un loop sobre los i depredadores sobre las j presas y
-                                                               calcula las distancias entre los mismos. En el medio pregunta
-                                                               si el depredador i está en condiciones de comer a una presa, 
-                                                               en funcion del atributo radio de vision ("rad_vis") de los 
-                                                               depredadores. En caso afirmativo, llama al método del 
-                                                               depredador, "comer(presa_a_ser_comida,lista_de_presas)" y 
-                                                               actualiza las listas removiendo la presa. Luego, llama al 
-                                                               metodo descansar(qué_depredador_descansará, tamaño_del_ecosist),                                                               del depredador. Este método manda al depredador a su cueva y,
-                                                               en el paso siguiente el depredador aparece en su cueva en una 
-                                                               posición random.
+""" 
   
-                                        *asignar_pos()*: teniendo en cuenta los atributos de cada animal, calcula un vector
-                                                       random para que se mueva y actualiza las posiciones.
+                                        
 """
 class Pacha(object):
     """
@@ -42,6 +41,13 @@ class Pacha(object):
 	num_dep		número de depredadores
     """
     def __init__(self, tamano, lista_pre, lista_dep): #ATRIBUTOS de territorio
+        """Defino los atributos de la clase pacha, el tamaño(tamano, dtype=float), la cantidad de 
+        predadores (lista_dep, es una lista), y la cantidad de presas (lista_pre, es una lista).
+        Parametros:
+            tamano[x,y]:Tamano del territorio. Es un espacio bidimensional definido por x e y.
+            lista_pre[]: Lista de presas.
+            lista_dep[]: Lista de predadores             
+"""
         self.tamano = tamano                  #un vector que define el tamano, sería la "diagonal del rect" en 2D
         self.lista_pre = lista_pre            #lista que contiene los objetos presa
         self.lista_dep = lista_dep            #lista que contiene los objetos depredadores
@@ -51,7 +57,18 @@ class Pacha(object):
         self.cueva_ID = []  
     
     def asignar_pos(self):
-        "Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su posicion anterior"
+        """Define posiciones nuevas para presas y predadores. Toma en cuenta su velocidad y su
+        posicion anterior. En el caso de los predadores existen dos posibilidades para asignar una
+        posicion. Las presas siempre son reasignadas en funcion del metodo moverse() de la clase
+        animal.
+        Caso(1). El predador no comio en la instancia anterior. Entonces asigna una nueva posicion
+        en funcion de su posicion anterior y la direccion de los vectores generados en el metodo
+        moverse() de la clase Animal; si es una presa a ese vector lo amplifica por el parametro 
+        velocidad dada a la presa; si es un predador a ese vector lo amplifica por el parametro
+        velocidad de los depredadores.
+        Caso(2). El predador en la instancia anterior comio una presa. Entonces la nueva posicion
+        del predador estara confinada a una region donde las presas no puede acceder. 
+"""
 
 ####   DEPREDADORES
 
@@ -81,7 +98,7 @@ class Pacha(object):
 
     def calcular_distancias(self):
         """Funcion que calcula la distancia minima distancia entre un predador y alguna presa.
-           Return: Pre_mas_cerc.
+           Return: Pre_mas_cerc[].
 
         """
           
