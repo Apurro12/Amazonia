@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-__docformat__ = 'reStructuredText'
 
-"Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano "
+__author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano "
 
+import pydoc
 import random as rand
 import numpy as np
 
@@ -23,14 +23,13 @@ class Animales(object):
 	(2)_Vision_ 		Define el rango con que el animal detecta a otros.
     """
     def __init__(self,velocidad=0.1,vision=1.):
-        "Define los atributos de la clase animal, velocidad y vision; los dos son floats."
         self.velocidad = velocidad
         self.vision = vision
 #        self.hambre = hambre
 #        self.vida = vida
 
     def moverse(self):
-        "El metodo moverse gener un vector aleatorio que define la direccion del movimiento. Devuelve una lista con el vector que indica la direccion del movimiento."
+        "El metodo moverse gener un vector aleatorio que define la direccion del movimiento"
         self.dir_mov = [0,0]
         theta = rand.random() # Defino como theta un angulo aleatorio calculado aleatoriamente respecto del eje x. Define la direccion del movimiento
         self.dir_mov[0] = np.cos(theta*2.*np.pi)#Defino coordenada x del vector
@@ -50,7 +49,7 @@ class Presa(Animales):
 
         """
     def __init__(self,ID):
-        "Define el valor de los atributos de la presa. Modifica los atributos heredados de la Clase Animal, velocidad y vision. Ademas define el ID de la presa"
+        "Define el valor de los atributos de la presa"
         Animales.__init__(self)
         self.velocidad *= 1#Defino la velocidad de la presa
         self.vision *= 1#Defino el rango de vision de la presa
@@ -74,7 +73,7 @@ class Depredador(Animales):
         """
     def __init__(self,ID):
         """
-        Define el valor de los atributos del predador: Velocidad, vision, radio de comer (rad_com), y ID.
+        Define el valor de los atributos del predador.
         """
         Animales.__init__(self)
         self.velocidad *= 10
@@ -83,7 +82,7 @@ class Depredador(Animales):
         self.ID = ID
         
     def comer(self,ID_pre_com,lista): 
-        "Le pasa el ID de la presa a comer en ID_pre_com, junto con la lista. Devuelve una lista."
+        "Le pasa el ID de la presa a comer en ID_pre_com, junto con la lista"
         del lista[ID_pre_com]         # Elimina el elemento list_pre_com de la lista.
         return lista
 
