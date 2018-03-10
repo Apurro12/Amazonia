@@ -1,7 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: module Clases_animales</title>
-<meta charset="utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -9,16 +8,8 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Clases_animales</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/antonella/Escritorio/Amazonia/Clases_animales.py">/home/antonella/Escritorio/Amazonia/Clases_animales.py</a></font></td></tr></table>
-    <p><tt>Clase&nbsp;<a href="#Animales">Animales</a><br>
-&nbsp;<br>
-En&nbsp;este&nbsp;archivo&nbsp;se&nbsp;generan&nbsp;tres&nbsp;clases:&nbsp;__Clase&nbsp;Animales__,&nbsp;__Clase&nbsp;Depredador__&nbsp;y&nbsp;__Clase&nbsp;Presa__.<br>
-Las&nbsp;ultimas&nbsp;dos&nbsp;clases&nbsp;heredan&nbsp;metodos&nbsp;y&nbsp;atributos&nbsp;de&nbsp;la&nbsp;clase&nbsp;animales.&nbsp;El&nbsp;objetivo&nbsp;es&nbsp;generar&nbsp;objetos&nbsp;con&nbsp;atributos&nbsp;y&nbsp;metodos&nbsp;que&nbsp;les&nbsp;permitan&nbsp;interactuar&nbsp;con&nbsp;el&nbsp;territorio.&nbsp;La&nbsp;clase&nbsp;<a href="#Animales">Animales</a>&nbsp;genera&nbsp;atributos&nbsp;y&nbsp;metodos&nbsp;que&nbsp;comparten&nbsp;tanto&nbsp;las&nbsp;presas&nbsp;como&nbsp;los&nbsp;predadores.&nbsp;Entre&nbsp;ellos&nbsp;la&nbsp;capacidad&nbsp;de&nbsp;moverse&nbsp;a&nbsp;una&nbsp;determinada&nbsp;velocidad&nbsp;y&nbsp;de&nbsp;tener&nbsp;un&nbsp;radio&nbsp;de&nbsp;vision&nbsp;para&nbsp;detectar&nbsp;a&nbsp;otros&nbsp;animales.<br>
-Las&nbsp;presas&nbsp;juegan&nbsp;un&nbsp;rol&nbsp;pasivo&nbsp;en&nbsp;este&nbsp;ecosistema,&nbsp;merodean&nbsp;por&nbsp;el&nbsp;territorio.<br>
-Los&nbsp;predadores&nbsp;merodean&nbsp;por&nbsp;el&nbsp;territorio,&nbsp;pero&nbsp;ademas&nbsp;tienen&nbsp;la&nbsp;capacidad&nbsp;de&nbsp;comer&nbsp;presas,&nbsp;de&nbsp;cazarlas&nbsp;y&nbsp;de&nbsp;descansar&nbsp;luego&nbsp;de&nbsp;comer&nbsp;una&nbsp;presa.&nbsp;<br>
-&nbsp;<br>
-Desarrolladores:&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Antonella&nbsp;Marabotto,&nbsp;Camilo&nbsp;Amadio,&nbsp;Federico&nbsp;Hernandez,&nbsp;Carlos&nbsp;Raul&nbsp;Medrano</tt></p>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/alumno/Escritorio/Amazonia/Clases_animales.py">/home/alumno/Escritorio/Amazonia/Clases_animales.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -27,8 +18,9 @@ Desarrolladores:&nbsp;<br>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pydoc.html">pydoc</a><br>
 </td><td width="25%" valign=top><a href="random.html">random</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -56,22 +48,14 @@ Desarrolladores:&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="Animales">class <strong>Animales</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Generador&nbsp;del&nbsp;objeto&nbsp;animales.<br>
-Objeto&nbsp;que&nbsp;define&nbsp;dos&nbsp;metodos&nbsp;y&nbsp;dos&nbsp;atributos&nbsp;comunes&nbsp;tanto&nbsp;a&nbsp;presas&nbsp;como&nbsp;predadores:&nbsp;Radio&nbsp;de<br>
-vision,&nbsp;Velocidad,&nbsp;<a href="#Animales-moverse">moverse</a>()&nbsp;y&nbsp;<a href="#Animales-__init__">__init__</a>().<br>
-Attributes:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(1)Velocidad(float)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define&nbsp;la&nbsp;amplificacion&nbsp;del&nbsp;vector&nbsp;de&nbsp;movimiento&nbsp;unitario.&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(2)Vision(float)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define&nbsp;el&nbsp;rango&nbsp;con&nbsp;que&nbsp;el&nbsp;animal&nbsp;detecta&nbsp;a&nbsp;otros.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(1)_Velocidad_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define&nbsp;la&nbsp;amplificacion&nbsp;del&nbsp;vector&nbsp;de&nbsp;movimiento&nbsp;unitario.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(2)_Vision_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define&nbsp;el&nbsp;rango&nbsp;con&nbsp;que&nbsp;el&nbsp;animal&nbsp;detecta&nbsp;a&nbsp;otros.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Animales-__init__"><strong>__init__</strong></a>(self, velocidad<font color="#909090">=0.1</font>, vision<font color="#909090">=1.0</font>)</dt><dd><tt>Define&nbsp;los&nbsp;atributos&nbsp;de&nbsp;la&nbsp;clase&nbsp;animal,&nbsp;velocidad&nbsp;y&nbsp;vision;&nbsp;los&nbsp;dos&nbsp;son&nbsp;floats.<br>
-Parametros:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Velocidad(float):&nbsp;Definida&nbsp;por&nbsp;el&nbsp;usuario.&nbsp;Es&nbsp;un&nbsp;parametro&nbsp;que&nbsp;indica&nbsp;cuanto&nbsp;se&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;amplifica&nbsp;el&nbsp;vector&nbsp;generado&nbsp;en&nbsp;<a href="#Animales-moverse">moverse</a>().<br>
-&nbsp;&nbsp;&nbsp;&nbsp;vision(float):&nbsp;Definida&nbsp;por&nbsp;el&nbsp;usuario.&nbsp;Es&nbsp;un&nbsp;parametro&nbsp;que&nbsp;indica&nbsp;el&nbsp;radio&nbsp;de<br>
-&nbsp;&nbsp;&nbsp;&nbsp;deteccion&nbsp;de&nbsp;otros&nbsp;animales.</tt></dd></dl>
+<dl><dt><a name="Animales-__init__"><strong>__init__</strong></a>(self, velocidad<font color="#909090">=1.0</font>, vision<font color="#909090">=1.0</font>)</dt><dd><tt>Define&nbsp;los&nbsp;atributos&nbsp;de&nbsp;los&nbsp;animales.</tt></dd></dl>
 
-<dl><dt><a name="Animales-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.&nbsp;Devuelve&nbsp;una&nbsp;lista&nbsp;con&nbsp;el&nbsp;vector&nbsp;que&nbsp;indica&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.</tt></dd></dl>
+<dl><dt><a name="Animales-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -88,20 +72,10 @@ Data descriptors defined here:<br>
 <font color="#000000" face="helvetica, arial"><a name="Depredador">class <strong>Depredador</strong></a>(<a href="Clases_animales.html#Animales">Animales</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Generador&nbsp;del&nbsp;objeto&nbsp;depredador<br>
-Esta&nbsp;clase&nbsp;produce&nbsp;un&nbsp;objeto&nbsp;que&nbsp;hereda&nbsp;de&nbsp;la&nbsp;clase&nbsp;animales&nbsp;los&nbsp;atributos&nbsp;vision&nbsp;y&nbsp;velocidad.<br>
-Tiene&nbsp;los&nbsp;metodos&nbsp;comer,&nbsp;que&nbsp;le&nbsp;permite&nbsp;atrapar&nbsp;una&nbsp;presa&nbsp;y&nbsp;removerla&nbsp;del&nbsp;sistema;&nbsp;el&nbsp;metodo<br>
-descansar,&nbsp;una&nbsp;vez&nbsp;que&nbsp;come&nbsp;una&nbsp;presa&nbsp;el&nbsp;depredador&nbsp;queda&nbsp;confinado&nbsp;a&nbsp;una&nbsp;region&nbsp;donde&nbsp;no&nbsp;hay<br>
-presas,&nbsp;y&nbsp;por&nbsp;ello&nbsp;no&nbsp;puede&nbsp;comer&nbsp;en&nbsp;esa&nbsp;partida.&nbsp;Hereda&nbsp;de&nbsp;la&nbsp;clase&nbsp;animal&nbsp;el&nbsp;metodo&nbsp;moverse&nbsp;<br>
-que&nbsp;le&nbsp;permite&nbsp;moverse&nbsp;aleatoriamente&nbsp;a&nbsp;menos&nbsp;que&nbsp;la&nbsp;distancia&nbsp;a&nbsp;una&nbsp;presa&nbsp;sea&nbsp;menor&nbsp;que&nbsp;su<br>
-radio&nbsp;de&nbsp;vision,&nbsp;en&nbsp;cuyo&nbsp;caso&nbsp;persigue&nbsp;a&nbsp;la&nbsp;presa.<br>
-&nbsp;<br>
-Attributes:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La&nbsp;__clase&nbsp;Depredador__&nbsp;posee&nbsp;4&nbsp;atributos:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;y&nbsp;2)Vision&nbsp;y&nbsp;Velocidad:&nbsp;heredados&nbsp;de&nbsp;<a href="#Animales">Animales</a>,&nbsp;que&nbsp;se&nbsp;re-inicializan&nbsp;en&nbsp;la&nbsp;clase<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;presa.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)ID:&nbsp;Un&nbsp;identificador&nbsp;del&nbsp;objeto&nbsp;depredador.&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)_rad_comer_:&nbsp;Radio&nbsp;en&nbsp;el&nbsp;cual&nbsp;un&nbsp;depreador&nbsp;come&nbsp;a&nbsp;la&nbsp;presa.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La&nbsp;__clase&nbsp;Depredador__&nbsp;posee&nbsp;3&nbsp;atributos:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;y&nbsp;2)_Vision&nbsp;y&nbsp;Velocidad_:&nbsp;heredados&nbsp;de&nbsp;<a href="#Animales">Animales</a>,&nbsp;que&nbsp;se&nbsp;re-inicializan&nbsp;en&nbsp;la&nbsp;clase&nbsp;presa.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)_ID_:&nbsp;Un&nbsp;identificador&nbsp;del&nbsp;objeto&nbsp;presa.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="Clases_animales.html#Depredador">Depredador</a></dd>
@@ -110,24 +84,13 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Depredador-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;del&nbsp;predador:&nbsp;Velocidad,&nbsp;vision,&nbsp;radio&nbsp;de&nbsp;comer<br>
-(rad_com),&nbsp;y&nbsp;ID.</tt></dd></dl>
+<dl><dt><a name="Depredador-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;del&nbsp;predador.</tt></dd></dl>
 
-<dl><dt><a name="Depredador-comer"><strong>comer</strong></a>(self, ID_pre_com, lista)</dt><dd><tt>Metodo&nbsp;que&nbsp;elimina&nbsp;a&nbsp;la&nbsp;presa&nbsp;que&nbsp;fue&nbsp;comida&nbsp;por&nbsp;el&nbsp;depredador.&nbsp;Devuelve&nbsp;una&nbsp;lista.<br>
-Parametros:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID_pre_com(int):&nbsp;Es&nbsp;un&nbsp;indicador&nbsp;de&nbsp;la&nbsp;presa&nbsp;que&nbsp;fue&nbsp;comida<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lista[]:&nbsp;Es&nbsp;una&nbsp;lista&nbsp;con&nbsp;las&nbsp;presas</tt></dd></dl>
-
-<dl><dt><a name="Depredador-descansar"><strong>descansar</strong></a>(self, ID_dep, tamano)</dt><dd><tt>El&nbsp;metodo&nbsp;descansar&nbsp;hacer&nbsp;que&nbsp;si&nbsp;el&nbsp;depredador&nbsp;come&nbsp;una&nbsp;presa,&nbsp;luego&nbsp;sea&nbsp;confinado&nbsp;a<br>
-una&nbsp;region&nbsp;del&nbsp;territorio&nbsp;donde&nbsp;no&nbsp;hay&nbsp;presas&nbsp;y&nbsp;por&nbsp;ello&nbsp;no&nbsp;puede&nbsp;alimentarse&nbsp;hasta&nbsp;la<br>
-siguiente&nbsp;partida.<br>
-Parametros:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID_dep(int):&nbsp;Es&nbsp;un&nbsp;indicador&nbsp;de&nbsp;cada&nbsp;depredador<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tamano&nbsp;[]:&nbsp;Tamano&nbsp;del&nbsp;territorio</tt></dd></dl>
+<dl><dt><a name="Depredador-comer"><strong>comer</strong></a>(self, ID_pre_com, lista)</dt><dd><tt>Le&nbsp;pasa&nbsp;el&nbsp;ID&nbsp;de&nbsp;la&nbsp;presa&nbsp;a&nbsp;comer&nbsp;en&nbsp;ID_pre_com,&nbsp;junto&nbsp;con&nbsp;la&nbsp;lista</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
-<dl><dt><a name="Depredador-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.&nbsp;Devuelve&nbsp;una&nbsp;lista&nbsp;con&nbsp;el&nbsp;vector&nbsp;que&nbsp;indica&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.</tt></dd></dl>
+<dl><dt><a name="Depredador-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
@@ -144,13 +107,10 @@ Data descriptors inherited from <a href="Clases_animales.html#Animales">Animales
 <font color="#000000" face="helvetica, arial"><a name="Presa">class <strong>Presa</strong></a>(<a href="Clases_animales.html#Animales">Animales</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Generador&nbsp;del&nbsp;objeto&nbsp;<a href="#Presa">Presa</a>.<br>
-Esta&nbsp;clase&nbsp;produce&nbsp;presas,&nbsp;cuya&nbsp;principal&nbsp;caracteristica&nbsp;es&nbsp;la&nbsp;de&nbsp;moverse&nbsp;aleatoriamente&nbsp;en&nbsp;el<br>
-espacio&nbsp;generado.&nbsp;Se&nbsp;mueven&nbsp;a&nbsp;una&nbsp;velocidad&nbsp;en&nbsp;todas&nbsp;las&nbsp;instancias&nbsp;del&nbsp;programa.<br>
-Attributes:<br>
+<td colspan=2><tt>Attributes:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La&nbsp;__clase&nbsp;Presa__&nbsp;posee&nbsp;3&nbsp;atributos:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;y&nbsp;2)Vision&nbsp;(float)&nbsp;y&nbsp;Velocidad(float):&nbsp;heredados&nbsp;de&nbsp;<a href="#Animales">Animales</a>,&nbsp;que&nbsp;se&nbsp;re-inicializan&nbsp;en&nbsp;la&nbsp;clase&nbsp;presa.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)ID(int):&nbsp;Un&nbsp;identificador&nbsp;del&nbsp;objeto&nbsp;presa.<br>&nbsp;</tt></td></tr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;y&nbsp;2)_Vision&nbsp;y&nbsp;Velocidad_:&nbsp;heredados&nbsp;de&nbsp;<a href="#Animales">Animales</a>,&nbsp;que&nbsp;se&nbsp;re-inicializan&nbsp;en&nbsp;la&nbsp;clase&nbsp;presa.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)_ID_:&nbsp;Un&nbsp;identificador&nbsp;del&nbsp;objeto&nbsp;presa.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="Clases_animales.html#Presa">Presa</a></dd>
@@ -159,11 +119,11 @@ Attributes:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Presa-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;de&nbsp;la&nbsp;presa.&nbsp;Modifica&nbsp;los&nbsp;atributos&nbsp;heredados&nbsp;de&nbsp;la&nbsp;Clase&nbsp;Animal,&nbsp;velocidad&nbsp;y&nbsp;vision.&nbsp;Ademas&nbsp;define&nbsp;el&nbsp;ID&nbsp;de&nbsp;la&nbsp;presa</tt></dd></dl>
+<dl><dt><a name="Presa-__init__"><strong>__init__</strong></a>(self, ID)</dt><dd><tt>Define&nbsp;el&nbsp;valor&nbsp;de&nbsp;los&nbsp;atributos&nbsp;de&nbsp;la&nbsp;presa</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
-<dl><dt><a name="Presa-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.&nbsp;Devuelve&nbsp;una&nbsp;lista&nbsp;con&nbsp;el&nbsp;vector&nbsp;que&nbsp;indica&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento.</tt></dd></dl>
+<dl><dt><a name="Presa-moverse"><strong>moverse</strong></a>(self)</dt><dd><tt>El&nbsp;metodo&nbsp;moverse&nbsp;gener&nbsp;un&nbsp;vector&nbsp;aleatorio&nbsp;que&nbsp;define&nbsp;la&nbsp;direccion&nbsp;del&nbsp;movimiento</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="Clases_animales.html#Animales">Animales</a>:<br>
@@ -173,5 +133,19 @@ Data descriptors inherited from <a href="Clases_animales.html#Animales">Animales
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-</td></tr></table></td></tr></table>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__author__</strong> = 'Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano '</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Antonella&nbsp;Marabotto,&nbsp;Camilo&nbsp;Amadio,&nbsp;Federico&nbsp;Hernandez,&nbsp;Carlos&nbsp;Raul&nbsp;Medrano&nbsp;</td></tr></table>
 </body></html>

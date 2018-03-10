@@ -1,37 +1,29 @@
 # -*- coding: utf-8 -*-
-"""Clase Animales
+__docformat__ = 'reStructuredText'
 
-En este archivo se generan tres clases: __Clase Animales__, __Clase Depredador__ y __Clase Presa__.
-Las ultimas dos clases heredan metodos y atributos de la clase animales. El objetivo es generar objetos con atributos y metodos que les permitan interactuar con el territorio. La clase Animales genera atributos y metodos que comparten tanto las presas como los predadores. Entre ellos la capacidad de moverse a una determinada velocidad y de tener un radio de vision para detectar a otros animales.
-Las presas juegan un rol pasivo en este ecosistema, merodean por el territorio.
-Los predadores merodean por el territorio, pero ademas tienen la capacidad de comer presas, de cazarlas y de descansar luego de comer una presa. 
-
-Desarrolladores: 
-    Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano
-"""
-
-
+"Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano "
 
 import random as rand
 import numpy as np
 
 
+"""
+En este archivo se encuentran tres clases: __Clase Animales__, __Clase Depredador__ y __Clase Presa__.
+Las ultimas dos clases heredan metodos y atributos de la clase animales.
+
+"""
+"""
+La __clase Animales__ posee 2 atributos:
+				
+"""
 class Animales(object):
-    """Generador del objeto animales.
-    Objeto que define dos metodos y dos atributos comunes tanto a presas como predadores: Radio de
-    vision, Velocidad, moverse() y __init__().
+    """
     Attributes:
-        (1)Velocidad(float)	Define la amplificacion del vector de movimiento unitario. 
-	(2)Vision(float) 	Define el rango con que el animal detecta a otros.
+        (1)_Velocidad_		Define la amplificacion del vector de movimiento unitario. 
+	(2)_Vision_ 		Define el rango con que el animal detecta a otros.
     """
     def __init__(self,velocidad=0.1,vision=1.):
-        """Define los atributos de la clase animal, velocidad y vision; los dos son floats.
-        Parametros:
-            Velocidad(float): Definida por el usuario. Es un parametro que indica cuanto se 
-            amplifica el vector generado en moverse().
-            vision(float): Definida por el usuario. Es un parametro que indica el radio de
-            deteccion de otros animales.
-    """
+        "Define los atributos de la clase animal, velocidad y vision; los dos son floats."
         self.velocidad = velocidad
         self.vision = vision
 #        self.hambre = hambre
@@ -50,13 +42,11 @@ class Animales(object):
 
 
 class Presa(Animales):
-    """Generador del objeto Presa.
-    Esta clase produce presas, cuya principal caracteristica es la de moverse aleatoriamente en el
-    espacio generado. Se mueven a una velocidad en todas las instancias del programa.
+    """
     Attributes:
          La __clase Presa__ posee 3 atributos:
-         (1 y 2)Vision (float) y Velocidad(float): heredados de Animales, que se re-inicializan en la clase presa.
-         (3)ID(int): Un identificador del objeto presa.
+         (1 y 2)_Vision y Velocidad_: heredados de Animales, que se re-inicializan en la clase presa.
+         (3)_ID_: Un identificador del objeto presa.
 
         """
     def __init__(self,ID):
@@ -67,28 +57,24 @@ class Presa(Animales):
         self.ID = ID#Defino el ID de la presa
 
 
-
+"""
+La __clase Depredador__ posee 4 atributos:
+				(1 y 2)_Vision y Velocidad_ heredados de Animales, que se re-inicializan en la clase presa.
+				(3)_ID_: Un identificador del objeto depredador.
+				(4)_rad_comer_: Radio en el cual un depreador come a la presa.
+La __clase Depredador__ posee 1 metodo:
+				(1) _Comer()_:Elimina de la lista de presas la presa que fue comida por el depredador		
+"""
 class Depredador(Animales):
     """
-    Generador del objeto depredador
-    Esta clase produce un objeto que hereda de la clase animales los atributos vision y velocidad.
-    Tiene los metodos comer, que le permite atrapar una presa y removerla del sistema; el metodo
-    descansar, una vez que come una presa el depredador queda confinado a una region donde no hay
-    presas, y por ello no puede comer en esa partida. Hereda de la clase animal el metodo moverse 
-    que le permite moverse aleatoriamente a menos que la distancia a una presa sea menor que su
-    radio de vision, en cuyo caso persigue a la presa.
-
     Attributes:
-         La __clase Depredador__ posee 4 atributos:
-         (1 y 2)Vision y Velocidad: heredados de Animales, que se re-inicializan en la clase
-         presa.
-         (3)ID: Un identificador del objeto depredador. 
-         (4)_rad_comer_: Radio en el cual un depreador come a la presa.
+         La __clase Depredador__ posee 3 atributos:
+         (1 y 2)_Vision y Velocidad_: heredados de Animales, que se re-inicializan en la clase presa.
+         (3)_ID_: Un identificador del objeto presa.
         """
     def __init__(self,ID):
         """
-        Define el valor de los atributos del predador: Velocidad, vision, radio de comer
-        (rad_com), y ID.
+        Define el valor de los atributos del predador: Velocidad, vision, radio de comer (rad_com), y ID.
         """
         Animales.__init__(self)
         self.velocidad *= 10
@@ -97,23 +83,11 @@ class Depredador(Animales):
         self.ID = ID
         
     def comer(self,ID_pre_com,lista): 
-        """Metodo que elimina a la presa que fue comida por el depredador. Devuelve una lista.
-        Parametros:
-             ID_pre_com(int): Es un indicador de la presa que fue comida
-             lista[]: Es una lista con las presas
-
-"""
+        "Le pasa el ID de la presa a comer en ID_pre_com, junto con la lista. Devuelve una lista."
         del lista[ID_pre_com]         # Elimina el elemento list_pre_com de la lista.
         return lista
 
     def descansar(self,ID_dep, tamano):               # Luego de comer el depredador va a descansar a su cueva
-        """El metodo descansar hacer que si el depredador come una presa, luego sea confinado a
-        una region del territorio donde no hay presas y por ello no puede alimentarse hasta la
-        siguiente partida.
-        Parametros:
-             ID_dep(int): Es un indicador de cada depredador
-             tamano []: Tamano del territorio
-     """
         pos_cueva_dep = [0,0,0]
         pos_cueva_dep[0] = ID_dep
         pos_cueva_dep[1] = rand.random()*(tamano[0]/6)    # se define una posición random dentro de la cueva

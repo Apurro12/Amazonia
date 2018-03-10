@@ -1,18 +1,13 @@
+
 # coding: utf-8
-"""Proyecto Amazonia
+__author__      = "Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano "
 
-Este programa genera un ecosistema. La dinamica de los objetos responde a la interaccion de presas y predadores. Ambos son libres de moverse por el territorio (Todos los atributos y metodos del mismo se encuentran en el archivo "clase_territorio.py"), las predadores tienen la capacidad de comer a las presas y de perseguirlas (Todos los atributos y metodos de presas y predadores se encuentran el archivo "Clases_animales.py").
-
-Desarrolladores: 
-    Antonella Marabotto, Camilo Amadio, Federico Hernandez, Carlos Raul Medrano
-
-Parametros:
-    tamano[]: Tamano de el territorio(pacha)
-    depredadores[]: Lista de depredadores
-    presas[]: Lista de presas
-     
+"""
+Proyecto Ecosistema:
+Este programa genera un ecosistema. La dinamica de los objetos responde a la interaccion de presas y predadores. Ambos son libres de moverse por el territorio (Todos los atributos y metodos del mismo se encuentran en el archivo "clase_territorio.py"), las predadores tienen la capacidad de comer a las presas y de perseguirlas (Todos los atributos y metodos de presas y predadores se encuentran el archivo "Clases_animales.py"). 
 """
 
+# In[1]:
 
 import Clases_animales as animales
 import clase_territorio as territorio
